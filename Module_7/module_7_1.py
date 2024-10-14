@@ -19,9 +19,9 @@ class Shop:
     def add(self, *products):
         open_ = open(self.__file_name, "a")
         for i in products:
-             if i.name in self.get_products():
-                 print(f"Продукт {i} уже есть в магазине")
-             else:
+            if i.name in self.get_products():
+                print(f"Продукт {i} уже есть в магазине")
+            else:
                 open_.write(str(i) + "\n")
         open_.close()
 
