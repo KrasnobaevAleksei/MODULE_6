@@ -13,10 +13,10 @@ class Bank:
     def deposit(self):
 
         for i in range(10):
-            if self.lock.locked():
-                self.lock.release()
-            if self.balance > 500:
+            if self.balance >= 500:
                 print(f"На балансе больше 500 р")
+                if self.lock.locked():
+                    self.lock.release()
             else:
                 deposit = randint(50, 500)
                 self.balance += deposit
@@ -29,12 +29,12 @@ class Bank:
             print(f"Запрос: {depo}")
             if self.balance < depo:
                 print(f"Запрос отклонён недостаточно средств")
+                self.lock.acquire()
             else:
                 self.balance -= depo
                 print(f"Снятие: {depo}. Баланс: {self.balance}")
-            self.lock.acquire()
-            sleep(0.001)
 
+            sleep(0.001)
 
 if __name__ == "__main__":
     bk = Bank()
