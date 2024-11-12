@@ -6,7 +6,6 @@ def  read_info(name):
     with open(name, encoding="utf - 8") as file:
         for i in file:
             all_data.append(i)
-
 filenames = [f'./file {number}.txt' for number in range(1, 5)]
 
 # start = time.time()
@@ -18,10 +17,8 @@ filenames = [f'./file {number}.txt' for number in range(1, 5)]
 # print(f"{finish - start}(линейный)")
 
 if __name__ == "__main__":
-
     start = time.time()
     with Pool(4) as pool:
         pool.map(read_info,filenames)
-
     finish = time.time()
     print(f"{finish - start}(многопроцессный)")
