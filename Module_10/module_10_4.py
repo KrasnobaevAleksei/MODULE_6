@@ -14,9 +14,7 @@ class Guest(threading.Thread):
         self.name = name
 
     def run(self):
-        print("Мы в run", threading.current_thread())
         time.sleep(random.randint(3, 10))
-        print('Мы закончили')
 
 class Cafe:
     def __init__(self, *tables):
@@ -36,25 +34,35 @@ class Cafe:
                 print(f'{guests[i].name} в очереди')
 
     def discuss_guests(self):
-        while not self.q.empty() :
-            for table in self.tables:
-                if  not table.guest.is_alive():
-                    print(f'{table.guest.name} покушал(-а) и ушёл(ушла)')
-                    print(f'Стол номер {table.number} свободен')
-                    table.guest = None
-                    table.guest = self.q.get()
-                    print(f'{table.guest.name} вышел(-ла) из очереди и сел(-а) за стол номер {table.number}')
-                    thread_1 = table.guest
-                    thread_1.start()
+            free_tables = len(tables)
+            while not self.q.empty():
+                for table in self.tables :
+                        if  not (table.guest is None) and not (table.guest.is_alive()):
+                            print(f'{table.guest.name} покушал(-а) и ушёл(ушла)')
+                            print(f'Стол номер {table.number} свободен')
+                            table.guest = None
+                        if  table.guest is None and not self.q.empty():
+                            table.guest = self.q.get()
+                            print(f'{table.guest.name} вышел(-ла) из очереди и сел(-а) за стол номер {table.number}')
+                            thread_1 = table.guest
+                            thread_1.start()
+            while free_tables != 0:
+                for table in self.tables:
+                        print(f'{table.guest.name} покушал(-а) и ушёл(ушла)')
+                        print(f'Стол номер {table.number} свободен')
+                        table.guest.join()
+                        free_tables -= 1
 
-# Создание столов
+
+
+# Создание столов т.е. экземпляры класса Table(number(1-6, guest = None)
 tables = [Table(number) for number in range(1, 6)]
 # Имена гостей
 guests_names = [
 'Maria', 'Oleg', 'Vakhtang', 'Sergey', 'Darya', 'Arman',
 'Vitoria', 'Nikita', 'Galina', 'Pavel', 'Ilya', 'Alexandra'
 ]
-# Создание гостей
+# Создание гостей - экземпляры класса Guest (name из списка guests_name)
 guests = [Guest(name) for name in guests_names]
 # Заполнение кафе столами
 cafe = Cafe(*tables)
