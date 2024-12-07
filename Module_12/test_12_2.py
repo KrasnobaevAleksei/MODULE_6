@@ -25,7 +25,7 @@ class TournamentTest(unittest.TestCase):
     def test_run(self):
         tour_1 = Tournament(90,self.run_1 , self.run_3)
         self.all_results.update(tour_1.start())
-        self.assertTrue(self.all_results[1], "Ник")
+        self.assertTrue(self.all_results[2], "Ник")
 
     def test_run_2(self):
         tour_2 = Tournament(90, self.run_2, self.run_3)
