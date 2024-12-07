@@ -39,11 +39,3 @@ class Tournament:
 
         return finishers
 
-# run_1 = Runner("Усейн", 10)
-# run_2 = Runner("Андрей", 9)
-# run_3 = Runner("Ник", 3)
-#
-# tour_1 = Tournament(90,(run_1, run_2))
-# print(run_1)
-# print(tour_1.participants)
-# print(tour_1.start())
