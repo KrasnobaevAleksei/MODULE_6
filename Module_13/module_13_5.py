@@ -5,9 +5,10 @@ from aiogram.dispatcher import FSMContext
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 import asyncio
 
-api = ''
+api = '7653586252:AAFTKkRUCWhbcMvYqOuZh2VwxI9_TjFhdxI'
 bot = Bot(token = api)
 dp = Dispatcher(bot, storage= MemoryStorage())
+
 # Создание клавиатуры
 kb = ReplyKeyboardMarkup()
 button = KeyboardButton(text= "Рассчитать")
@@ -65,7 +66,7 @@ async def send_calories(message, state):
     #запоминаем все ранне введенные состояния
     data = await state.get_data()
     try:
-        itog =  10 * int(data['weight']) + 6.25 * int(data['growth']) + 5 * int(data['age']) + 5
+        itog =  10 * int(data['weight']) + 6.25 * int(data['growth']) - 5 * int(data['age']) + 5
     except ValueError as e:
         await message.answer("O, NO")
         await state.finish()
@@ -74,6 +75,10 @@ async def send_calories(message, state):
     await message.answer(itog)
     # Ожидает ввода данных от пользователя
     await state.finish()
+
+@dp.message_handler()
+async def all_message(message):
+    await message.answer( 'Введите команду /start, чтобы начать общение.')
 
 
 # Запускаем
