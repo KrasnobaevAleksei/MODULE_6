@@ -1,7 +1,7 @@
 import sqlite3
 
 # коннект с браузером
-connection = sqlite3.connect("not_telegram.db")
+connection = sqlite3.connect("not_telegram_2.db")
 # объект типа мышки для указания на ячейки
 cursor = connection.cursor()
 
