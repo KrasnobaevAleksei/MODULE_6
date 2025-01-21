@@ -13,7 +13,7 @@ class RunnerTest(unittest.TestCase):
             self.assertEqual(runner.distance, 100)
         except ValueError as err:
             logging.warning("Неверная скорость для Runner", exc_info=True)
-            return 0
+
 
     def test_run(self):
         try:
@@ -24,7 +24,7 @@ class RunnerTest(unittest.TestCase):
             self.assertEqual(runner2.distance, 100)
         except TypeError as err:
             logging.warning("Неверный тип данных для объекта Runner", exc_info=True)
-            return 0
+
 
 
     def test_challenge(self):
@@ -36,7 +36,8 @@ class RunnerTest(unittest.TestCase):
             runner3.walk()
         self.assertNotEqual(runner4.distance, runner3.distance)
 
-# if __name__ == "__main__":
+if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, filemode='w', filename='runner_tests.log',
                         encoding="utf - 8", format="%(asctime)s | %(levelname)s | %(message)s")
+
     

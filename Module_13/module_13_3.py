@@ -1,16 +1,17 @@
 from aiogram import Bot, Dispatcher, executor, types
+
 # из блока работы с памятью
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 import asyncio
 
 # Токен
-api = ""
+api = "7653586252:AAFTKkRUCWhbcMvYqOuZh2VwxI9_TjFhdxI"
 # Объект бота
 bot = Bot(token = api)
 #
 dp = Dispatcher(bot, storage= MemoryStorage())
 
-# Пишем в строке в тееге /start(Команда) тогда обрабатывается
+# Пишем в строке в телеге /start(Команда) тогда обрабатывается
 @dp.message_handler(commands='start')
 async def start_message(message):
     await message.answer('Привет! Я бот помогающий твоему здоровью.' )

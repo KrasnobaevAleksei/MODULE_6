@@ -10,7 +10,7 @@ class WordsFinder:
         for name in self.file_names:
             with open(name, encoding= "utf - 8") as file:
                     text  = file.read()
-                    # eудаляем заки припинания из текста
+                    # удаляем знаки припинания из текста
                     table = str.maketrans(" ", " ", string.punctuation)
                     text2 = text.translate(table)
                     # словарь

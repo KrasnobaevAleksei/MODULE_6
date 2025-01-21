@@ -4,7 +4,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 import asyncio
 
 # Токен
-api = ""
+api = "7653586252:AAFTKkRUCWhbcMvYqOuZh2VwxI9_TjFhdxI"
 # Объект бота
 bot = Bot(token = api)
 #

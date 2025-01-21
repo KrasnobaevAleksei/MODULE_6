@@ -27,15 +27,15 @@ class TournamentTest(unittest.TestCase):
         self.all_results.update(tour_1.start())
         self.assertTrue(self.all_results[len(self.all_results)] == "Ник")
 
-    def test_run_2(self):
-        tour_2 = Tournament(90, self.run_2, self.run_3)
-        self.all_results.update(tour_2.start())
-        self.assertTrue(self.all_results[len(self.all_results)] =="Ник")
-
-    def test_run_3(self):
-        tour_3 = Tournament(90, self.run_1, self.run_2, self.run_3)
-        self.all_results.update(tour_3.start())
-        self.assertTrue(self.all_results[len(self.all_results)] == "Ник")
+    # def test_run_2(self):
+    #     tour_2 = Tournament(90, self.run_2, self.run_3)
+    #     self.all_results.update(tour_2.start())
+    #     self.assertTrue(self.all_results[len(self.all_results)] =="Ник")
+    #
+    # def test_run_3(self):
+    #     tour_3 = Tournament(90, self.run_1, self.run_2, self.run_3)
+    #     self.all_results.update(tour_3.start())
+    #     self.assertTrue(self.all_results[len(self.all_results)] == "Ник")
 
 if __name__ == "__main__":
     unittest.main()

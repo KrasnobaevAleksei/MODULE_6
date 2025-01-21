@@ -38,14 +38,16 @@ class House:
         return self
 
     def __iadd__(self, other):
-        self.number_of_floor += other
-        return self
+        return self.__add__(other)
+        # self.number_of_floor += other
+        # return self
     # def __iadd__(self, other1):
     #      self.__add__(self, other1)
 
     def __radd__(self, other):
-        self.number_of_floor += other
-        return self
+        return self.__add__(other)
+        # self.number_of_floor += other
+        # return self
 
     # метод len
     def __len__(self):

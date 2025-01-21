@@ -1,6 +1,7 @@
 from random import choice
 from pprint import pprint
 
+
 first = 'Мама мыла раму'
 second = 'Рамена мало было'
 
@@ -32,4 +33,3 @@ first_ball = MysticBall('Да', 'Нет', 'Наверное')
 print(first_ball())
 print(first_ball())
 print(first_ball())
-

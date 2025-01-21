@@ -1,3 +1,4 @@
+#
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.dispatcher.filters.state import State, StatesGroup
@@ -58,7 +59,56 @@ async def get_buying_list(message):
     for i in range(len(produkt)):
         await message.answer(f'{produkt[i][0]} | Описание:  {produkt[i][1]} | Цена: {produkt[i][2]}')
         # Добавляем картинку продукта 1 под надписью
-        with open(f"photo/img_{i+1}.webp", "rb") as img:
+        with open(f"photo/img_{i+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        }.webp", "rb") as img:
             await message.answer_photo(img)
 # Выводит инлайн меню для выбора и покупки продукта
     await message.answer("Выберите продукт для покупки", reply_markup = kb2)
